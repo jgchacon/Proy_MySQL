@@ -187,3 +187,104 @@ insert into asigna(idMascota, ciMedico, id_Diagnostico) values
 (12, 9111112, 302),
 (13, 9110555, 301),
 (14, 9110555, 300);
+
+-- MISHEL
+
+#datos a insertar
+
+#persona
+insert into persona(ci, nombres, apepaterno, apematerno, sexo, fecha_de_nacimiento, correo, telefono) values
+(2579301, 'Estefani Micaela', 'Nina', 'Cori', 'F', '1996-11-22', 'emnc_1122@gmail.com', 79735459),
+(4601297, 'Fernanda', 'Gomez', 'Rodriguez', 'F', '1990-08-15', 'fergom_89@gmail.com', 69820148),
+(2304896, 'Luis Alberto', 'Gonzalez', 'Hernandez', 'M', '1985-05-20', 'luis_123@gmail.com', 70264031),
+(1597002, 'Ana', 'Martinez', 'Perez', 'F', '1992-11-30', 'ana_456@gmail.com', 66666666),
+(4520158, 'Mayari', 'Altuzarra', 'Huanca', 'F', '1990-12-25', 'may_000@gmail.com', 76409782),
+(1020507, 'Eduardo', 'Lopez', 'Ramirez', 'M', '1980-02-10', 'edulo_789@gmail.com', 60497750);
+
+#medico
+insert into medico(ciMedico, especialidad, sueldo) values
+(4601297, 'Cirugia Veterinaria', 6000),
+(1020507, 'Cardiología Veterinaria', 5200),
+(2304896, 'Neurología Veterinaria', 5300);
+
+#dueño
+insert into dueño(ciDueño, direccion) values
+(2579301, 'Mercedario 2 #15'),
+(4520158, 'Av. Alfonso Ugarte #789'),
+(4601297, 'Satelite #484'),
+(1597002, '12 de Octubre #1245');
+
+#mascota
+insert into mascota(idMascota, nombre, especie, raza, fecha_de_nacimiento, ciDueño) values
+(30, 'Luna', 'Gato', 'Siames', '2021-05-20', 2579301),
+(31, 'Rocky', 'Perro', 'Labrador', '2019-12-10', 2579301),
+(32, 'Coco', 'Perro', 'Pomeranian', '2020-11-05', 4520158),
+(33, 'Nina', 'Gato', 'Persa', '2022-03-17', 4601297),
+(34, 'Rex', 'Perro', 'Bulldog', '2020-07-28', 1597002);
+
+insert into atiende(idMascota, ciMedico) values
+(30, 4601297),
+(31, 1020507),
+(32, 4601297),
+(33, 2304896),
+(34, 2304896);
+
+#diagnostico
+insert into diagnostico(id_Diagnostico, fecha_de_diagnostico, diagnostico, tratamiento, observaciones) values
+(210, '2023-02-14', 'Cirugía de ligamento cruzado roto', 'Cirugía de corrección y rehabilitación postoperatoria', 'Seguimiento postoperatorio en 6 semanas'),
+(211, '2023-03-05', 'Insuficiencia Cardíaca Congestiva', 'Medicamentos para el corazón y cambio en la dieta', 'Ecocardiograma de seguimiento en un mes'),
+(212, '2023-04-20', 'Epilepsia', 'Medicación antiepiléptica y monitoreo', 'Programar seguimiento en tres meses'),
+(213, '2023-05-12', 'Tumor cerebral', 'Cirugía de extirpación y radioterapia', 'Seguimiento oncológico en 3 meses'),
+(214, '2023-06-08', 'Arritmia cardíaca', 'Medicamentos antiarrítmicos y monitoreo del ritmo cardíaco', 'Revisión cardiológica en un mes'),
+(215, '2023-07-17', 'Hernia de disco', 'Cirugía de columna y rehabilitación', 'Seguimiento neurológico en 8 semanas');
+
+#asigna
+insert into asigna(idMascota, ciMedico, id_Diagnostico) values
+(30, 4601297, 210),
+(31, 1020507, 214),
+(32, 2304896, 212),
+(33, 2304896, 213),
+(35, 1020507, 211),
+(34, 2304896, 215);
+
+insert into receta(id_Diagnostico, id_Producto) values
+(210, 16),
+(210, 17), 
+(211, 18),
+(211, 15), -- de los datos de luz el producto
+(212, 19),
+(212, 20),
+(213, 21),
+(214, 22),
+(215, 23);
+
+#producto
+insert into producto(id_Producto, nombre, descripcion, precio, stock) values
+(16, 'Antiinflamatorio', 'Medicamento para reducir la inflamación', 25.99, 100),
+(17, 'Analgésico', 'Medicamento para el alivio del dolor', 15.50, 150),
+(18, 'Diurético', 'Medicamento para la insuficiencia cardíaca', 30.25, 75),
+(19, 'Antiepiléptico', 'Medicamento para controlar las convulsiones', 35.75, 90),
+(20, 'Monitor de Epilepsia', 'Dispositivo para monitoreo', 100.00, 20),
+(21, 'Medicamento oncológico', 'Medicamento para el tratamiento del cáncer', 80.50, 30),
+(22, 'Antiarrítmico', 'Medicamento para problemas de ritmo cardíaco', 28.25, 80),
+(23, 'Medicamento para el dolor', 'Alivio del dolor para hernia de disco', 20.75, 70);
+  
+#proveedor
+insert into proveedor(id_Proveedor, nombreEmpresa, telefono, correo) values
+(165, 'Animal Pet', 60201048, 'anipet_00@gmail.com'),
+(166, 'Productos Verdes', 72543654, 'productos_verdes@gmail.com'),
+(167, 'Productos sanos S.A.', 72221111, 'productos_sanos@gmail.com'),
+(168, 'Semillas de Calidad', 73334444, 'semillas_calidad@gmail.com');
+
+
+#provee
+insert into provee(id_Producto, id_Proveedor, cantidad) values
+(16, 173, 12), -- de los datos de carlos el proveedor
+(17, 111, 30), -- de los datos de luz el proveedor
+(18, 165, 100),
+(19, 166, 80),
+(20, 113, 50), -- de los datos de luz el proveedor
+(21, 167, 10),
+(22, 171, 70), -- de los datos de carlos el proveedor
+(23, 112, 200); -- de los datos de luz el proveedor
+
