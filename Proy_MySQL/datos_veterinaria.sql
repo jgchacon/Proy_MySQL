@@ -222,6 +222,7 @@ insert into mascota(idMascota, nombre, especie, raza, fecha_de_nacimiento, ciDue
 (33, 'Nina', 'Gato', 'Persa', '2022-03-17', 4601297),
 (34, 'Rex', 'Perro', 'Bulldog', '2020-07-28', 1597002);
 
+#atiende
 insert into atiende(idMascota, ciMedico) values
 (30, 4601297),
 (31, 1020507),
@@ -247,6 +248,7 @@ insert into asigna(idMascota, ciMedico, id_Diagnostico) values
 (35, 1020507, 211),
 (34, 2304896, 215);
 
+#receta
 insert into receta(id_Diagnostico, id_Producto) values
 (210, 16),
 (210, 17), 
