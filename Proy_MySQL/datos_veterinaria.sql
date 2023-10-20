@@ -290,3 +290,99 @@ insert into provee(id_Producto, id_Proveedor, cantidad) values
 (22, 171, 70), -- de los datos de carlos el proveedor
 (23, 112, 200); -- de los datos de luz el proveedor
 
+--LUIS
+
+#persona
+insert into persona(ci, nombres, apepaterno, apematerno, sexo, fecha_de_nacimiento, correo, telefono) values
+(3111111, 'Luisa', 'Gomez', 'Vargas', 'F', '1998-01-17', 'luisa.gomez@gmail.com', 72558674),
+(2211162, 'Pedro', 'Sánchez', 'Mendoza', 'M', '1997-03-15', 'pedro.sanchez@gmail.com', 73246589),
+(4215512, 'María', 'Fernández', 'Santos', 'F', '1995-06-12', 'maria.fernandez@gmail.com', 71423651),
+(2321113, 'Ricardo', 'Mendoza', 'Vega', 'M', '1993-09-09', 'ricardo.mendoza@gmail.com', 79845321),
+(3326514, 'Emily', 'Smith', 'Williams', 'F', '1990-12-07', 'emily.smith@gmail.com', 74512389),
+(1428115, 'Javier', 'González', 'Rojas', 'M', '1999-02-25', 'javier.gonzalez@gmail.com', 71659832),
+(4132112, 'Valeria', 'López', 'Hernández', 'F', '2001-07-31', 'valeria.lopez@gmail.com', 73321456),
+(2122122, 'Daniel', 'Martiñez', 'Jiménez', 'M', '2004-10-18', 'daniel.martinez@gmail.com', 72154632);
+
+#medico
+insert into medico(ciMedico, especialidad, sueldo) values
+(2211162, 'Medicina Interna', 5000),
+(2321113, 'Cirugia Veterinaria', 6000),
+(1428115, 'General', 6000),
+(2122122, 'Medicina Interna', 4000);
+
+#dueño
+insert into dueño(ciDueño, direccion) values
+(3111111, 'Av. Arce'),
+(4215512, 'Av. Brasil'),
+(3326514, 'Av. 6 De Marzo'),
+(4132112, 'Av. Costanera'),
+(2321113, 'Av. Jaimes Freyre');
+
+#mascota
+insert into mascota(idMascota, nombre, especie, raza, fecha_de_nacimiento, ciDueño) values
+(35, 'Rex', 'perro', 'Labrador Retriever', '2020-04-05', 3111111),
+(36, 'Luna', 'gato', 'Siames', '2017-09-15', 4215512),
+(37, 'Bobby', 'perro', 'Golden Retriever', '2019-01-16', 3326514),
+(38, 'Nibbles', 'gato', 'Persa', '2018-03-22', 4132112),
+(39, 'Whiskers', 'conejo', 'Mini lop', '2020-01-30', 2321113);
+
+#atiende
+insert into atiende(idMascota, ciMedico) values
+(35, 2211162),
+(36, 2321113),
+(37, 2122122),
+(38, 1428115),
+(39, 2122122);
+
+
+
+
+#diagnostico
+insert into diagnostico(id_Diagnostico, fecha_de_diagnostico, diagnostico, tratamiento, observaciones) values
+(245, '2023-02-15', 'Dolor estomaca', 'Antiácidos y descanso', 'Mantener al animal en reposo'),
+(246, '2023-03-13', 'Analisis', 'Extraccion de sangre', 'Los resultados seran entregados en 24 horas'),
+(247, '2022-02-16', 'Resfriado', 'Antibióticos y descanso', 'Administrar antibióticos según las indicaciones del veterinario'),
+(248, '2022-06-121', 'Resfriado', 'Se le dio antihistaminicos', 'El paciente volverá en una semana'),
+(249, '2022-07-17', 'Obesidad', 'Control de la alimentacion ', 'Reducir la cantidad de comida');
+
+
+#asigna
+insert into asigna(idMascota, ciMedico, id_Diagnostico) values
+(35, 2211162, 245),
+(36, 2321113, 246),
+(37, 1428115, 247),
+(38, 2321113, 248),
+(39, 2321113, 249);
+
+#producto
+insert into producto(id_Producto, nombre, descripcion, precio, stock) values
+(31, 'Casa para conejos', 'Resistente', 50, 7),
+(32, 'Rascador para gato', 'Rascador resistente para gatos', 22.95, 18),
+(33, 'Arnés para perros', 'Arnés ajustable para paseos cómodos', 19, 15),
+(34, 'Arenero', 'Arenero reutilizable', 30.03, 10),
+(35, 'Juguete de ratón', 'Juguete de peluche con sonido', 124.99, 6);
+
+#receta
+insert into receta(id_Diagnostico, id_Producto) values
+(249, 31),
+(248, 32),
+(247, 33),
+(246, 34),
+(245, 35);
+
+#proveedor
+insert into proveedor(id_Proveedor, nombreEmpresa, telefono, correo) values
+(121, 'MascotasFelices', 76541234, 'masfelices@gmail.com'),
+(122, 'Animals S.A.', 68982345, 'animalsa@gmail.com'),
+(123, 'Canine', 71230987, 'canine@gmail.com'),
+(124, 'MundoAnimal', 63458712, 'mundoanimal@gmail.com'),
+(125, 'VeterinariaPro', 67651234, 'proveterinaria@hotmail.com');
+
+#provee
+insert into provee(id_Producto, id_Proveedor, cantidad) values
+(35, 121, 20),
+(34, 122, 25),
+(33, 123, 50),
+(32, 125, 70),
+(31, 124, 35);
+
