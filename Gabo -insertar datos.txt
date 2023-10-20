@@ -1,0 +1,91 @@
+# Gabriel - datos a insertar
+#==============================================================================================================
+# persona
+insert into persona(ci, nombres, apepaterno, apematerno, sexo, fecha_de_nacimiento, correo, telefono) values
+(2431234, 'Sheyla', 'Perez', 'Copa', 'F', '1998-06-22', 'sheyla@gmail.com', 72837457),
+(2354237, 'Winder', 'Canezo', 'Gutierrez', 'M', '1980-02-21', 'wcanezo1@gmail.com', 68485732),
+(2567457, 'Eleazar', 'Cruz', 'Pari', 'M', '1999-02-21', 'Elecr@gmail.com', 67374722),
+(2415428, 'Ruth', 'Usnayo', 'Valdez', 'F', '2001-10-01', 'Ruth121@gmail.com', 78364525),
+(2664223, 'Amira', 'Perez', 'Mayta', 'F', '200-05-20', 'Perezamira123@gmail.com', 77785764),
+(2536993, 'Ariel', 'Camacho', 'Ruiz', 'M', '1985-10-06', 'Aricamacho76@gmail.com', 76494375);
+
+#medico
+
+insert into medico(ciMedico, especialidad, sueldo) values
+(2431234, 'Medicina Interna Veterinaria', 8500),
+(2415428, 'Dermatología Veterinaria', 6300),
+(2567457, 'Oftalmología Veterinaria', 7600);
+
+#dueño
+insert into dueño(ciDueño, direccion) values
+(2536993, 'Avenida René Zabaleta #85'),
+(2664223, 'Calle Jaén #500'),
+(2415428, 'Calle Sagárnaga #315'),
+(2567457, 'Avenida Illampu #765');
+
+#mascota
+insert into mascota(idMascota, nombre, especie, raza, fecha_de_nacimiento, ciDueño) values
+(36, 'Yogui', 'Perro', 'Mestizo', '2021-11-10', 2536993),
+(37, 'Perla', 'Perro', 'Pitbul', '2010-07-21', 2664223),
+(38, 'Bobi', 'Perro', 'Chihuahua', '2022-03-12', 2415428),
+(39, 'Copito', 'Gato', 'Siberiano', '2019-11-23', 2567457),
+(40, 'Sussy', 'Gato', 'Maine Coon', '2023-01-20', 2536993);
+
+
+#atiende
+insert into atiende(idMascota, ciMedico) values
+(36, 2431234),
+(37, 2431234),
+(38, 2567457),
+(39, 2415428),
+(40, 2567457);
+
+#diagnostico
+insert into diagnostico(id_Diagnostico, fecha_de_diagnostico, diagnostico, tratamiento, observaciones) values
+(216, '2023-03-01', 'Infección en el oído derecho', 'Limpieza del oído y prescripción de antibióticos tópicos', 'Se instruye al propietario sobre la administración de medicamentos y la importancia de mantener el oído limpio y seco'),
+(217, '2023-03-10', 'Alergia a las pulgas', 'Tratamiento antipulgas, medicamentos antihistamínicos y champú especial', 'Se aconseja al dueño sobre la prevención de pulgas y cuidados continuos de la piel'),
+(218, '2023-04-15', 'Radiografía que revela una fractura en la pata trasera del perro', 'Reducción de la fractura y colocación de un yeso', 'El propietario debe restringir la actividad del perro durante la recuperación '),
+(219, '2023-04-21', 'Análisis de orina muestra cristales en la orina del gato', 'Cirugía de extirpación y radioterapia', 'Se recomienda una dieta específica y se programan chequeos regulares'),
+(220, '2023-05-13', 'Alergia a las pulgas', 'Tratamiento antipulgas, medicamentos antihistamínicos y champú especial', 'Se aconseja al dueño sobre la prevención de pulgas y cuidados continuos de la piel'),;
+
+
+#asigna
+insert into asigna(idMascota, ciMedico, id_Diagnostico) values
+(36, 2431234, 217),
+(37, 2431234, 218),
+(38, 2567457, 220),
+(39, 2415428, 216),
+(40, 2567457, 219);
+
+#receta
+insert into receta(id_Diagnostico, id_Producto) values
+(216, 24),
+(216, 25), 
+(217, 26),
+(218, 27),
+(219, 28),
+(220, 26);
+
+#producto
+insert into producto(id_Producto, nombre, descripcion, precio, stock) values
+(24, 'Gotas Antibióticas', 'Oticas antibióticas para tratar la infección bacteriana en el oído de tu gato', 45.67, 70),
+(25, 'Analgesia', 'Aliviar el dolor y la incomodidad', 25.50, 150),
+(26, 'Antihistamínicos', 'Ayuda a aliviar los síntomas alérgicos en perros', 23.45, 45),
+(27, 'Antiinflamatorios no esteroides', 'Medicamentos como el carprofeno, el meloxicam o el firocoxib se utilizan para reducir la inflamación ', 27.50, 100),
+(28, 'Medicamentos antiinflamatorios', 'Si los cristales están causando irritación o inflamación en el tracto urinario del gato', 23.60, 50);
+  
+#proveedor
+insert into proveedor(id_Proveedor, nombreEmpresa, telefono, correo) values
+(169, 'Veterquimica Bolivia', 78876534, 'veterquimBol@gmail.com'),
+(170, 'Agrovet Market', 65764564, 'AgrovetMarket@gmail.com'),
+(171, 'AnimaLove', 77857645, 'AnimaLove@gmail.com'),
+(172, 'Faunamed', 66236475, 'Faunamed@gmail.com');
+
+
+#provee
+insert into provee(id_Producto, id_Proveedor, cantidad) values
+(24, 169, 60),
+(25, 170, 40),
+(26, 171, 95),
+(27, 172, 70),
+(28, 115, 80);   
